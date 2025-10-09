@@ -8,6 +8,8 @@
 }
 
 .item-card {
+    display: flex;
+    flex-direction: column;
     background: black;
     color: white;
     border-radius: 8px;
@@ -18,6 +20,10 @@
 
 .item-card:hover {
     transform: translateY(-5px);
+}
+
+.content{
+    flex: 1;
 }
 
 .action-items {

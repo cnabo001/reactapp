@@ -8,9 +8,11 @@ import apiConnector from "../api/apiconnector";
 export default function StoreItemComponent(item: StoreItem) {
     return (
         <div className="item-card">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <p>${item.price}</p>
+            <div className="content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <p>${item.price}</p>
+            </div>
             <div className="action-items">
                 <Button color="primary" type="submit" component={NavLink} to={`edit/${item.id}`}>Edit</Button>
                 <Button color="secondary" type="button" onClick={async () => {

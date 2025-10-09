@@ -19,3 +19,9 @@
 .item-card:hover {
     transform: translateY(-5px);
 }
+
+.action-items {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}

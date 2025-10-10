@@ -1,33 +1,60 @@
 .store-items-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
-    padding: 1rem;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    width: 100%;
+    box-sizing: border-box;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-inline: auto;
+    align-self: stretch;
 }
 
-.item-card {
+.store-items-container .item-card {
     display: flex;
     flex-direction: column;
-    background: black;
-    color: white;
+    background: #000; 
+    color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(231, 231, 231, 0.1);
     padding: 1rem;
     transition: transform 0.2s;
 }
 
-.item-card:hover {
+.store-items-container .item-card:hover {
     transform: translateY(-5px);
 }
 
-.content{
+.store-items-container .item-card .item-card__content{
     flex: 1;
 }
 
-.action-items {
+.store-items-container .item-card .item-card__actions {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
+}
+
+/* Make sure MUI buttons inside the card don't inherit unwanted global button styles */
+.store-items-container .item-card .item-card__actions .MuiButton-root {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+/* smaller screens */
+@media (max-width: 600px) {
+    .store-items-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+        padding-inline: 0.75rem;
+    }
+}
+
+/* extra small screens */
+@media (max-width: 360px) {
+    .store-items-container {
+        grid-template-columns: 1fr;
+        padding-inline: 0.5rem;
+    }
 }

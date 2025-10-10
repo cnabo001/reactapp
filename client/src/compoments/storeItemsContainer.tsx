@@ -16,7 +16,11 @@ export default function StoreItemContainer() {
     
     return (
         <div className="store-items-container">
-            {items.map((item: any) => (<StoreItemComponent key={item.id} {...item} /> ))}
+            {items
+            .filter((item) => item.isActive)
+            .map((item: any) => (
+                <StoreItemComponent key={item.id} {...item} />
+            ))}
         </div>
     )
 }

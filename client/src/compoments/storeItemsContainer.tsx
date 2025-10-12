@@ -12,6 +12,7 @@ export default function StoreItemContainer() {
         const fectedItems = async () => {
             const response = (await apiConnector.getStoreItems()).items;
             setItems(response);
+            (console.log('from component: ',response));
         }
         fectedItems();
       }, []);

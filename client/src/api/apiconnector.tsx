@@ -22,7 +22,7 @@ const apiConnector = {
         }
     },
 
-    getStoreItemById: async (id: number): Promise<StoreItem | undefined> => {
+    getStoreItemById: async (id: string): Promise<StoreItem | undefined> => {
         try{
             const response: AxiosResponse<StoreItem> = 
                 await api.get(`/StoreItems/Items/${id}`);
@@ -55,7 +55,7 @@ const apiConnector = {
         }
     },
     
-    deleteStoreItem: async (id: number): Promise<void> => {
+    deleteStoreItem: async (id: string): Promise<void> => {
         try{
             await api.delete(`/StoreItems/Items/${id}`);
             return;

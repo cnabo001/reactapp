@@ -6,11 +6,10 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 
 export default function StoreItemForm() {
     const {id} = useParams();
-    const parsedId = Number(id);
     const navigate = useNavigate();
     const [hasItem, setHasItem] = useState(false);
     const [item, setItem] = useState<StoreItem>({
-        id : undefined, 
+        id : "", 
         title: "", 
         description: "", 
         price: 0,
@@ -19,10 +18,10 @@ export default function StoreItemForm() {
         updateDate: new Date()
     });
     useEffect(() => {
-        if (parsedId) {
+        if (id) {
             (async () => {
                 await apiConnector
-                .getStoreItemById(parsedId)
+                .getStoreItemById(id)
                 .then((response) => {
                     if (response) {
                         setItem(response);
@@ -31,7 +30,7 @@ export default function StoreItemForm() {
                 });
             })();
         }
-    },[parsedId]);
+    },[id]);
 
     function onSubmit(e: React.FormEvent) {
         e.preventDefault();

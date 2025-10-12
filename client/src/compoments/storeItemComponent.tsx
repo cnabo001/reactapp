@@ -16,7 +16,7 @@ export default function StoreItemComponent(item: StoreItem) {
                 <Button color="primary" type="submit" component={NavLink} to={`edit/${item.id}`}>Edit</Button>
                 <Button color="secondary" type="button" onClick={async () => {
                     if (typeof item.id === "number") {
-                        await apiConnector.deleteStoreItem(Number(item.id));
+                        await apiConnector.deleteStoreItem(item.id);
                         window.location.reload();
                     } else {
                         alert("Item ID is missing.");

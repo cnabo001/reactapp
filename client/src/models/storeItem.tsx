@@ -1,5 +1,5 @@
 export interface StoreItem {
-        id: number | undefined;
+        id: string | undefined;
         title: string;
         price: number;
         description: string;
